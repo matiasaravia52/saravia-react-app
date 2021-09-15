@@ -1,0 +1,14 @@
+.card {
+    display: inline-block !important;
+    margin-left: 1rem;
+}
+.item {
+    width: 180px;
+    height: auto;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.image {
+    width: 9rem;
+}
