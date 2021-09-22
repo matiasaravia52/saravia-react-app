@@ -9,7 +9,7 @@ const Item = ({ item, addOn }) => {
     return (
         <Card className="item">
             <Card.Body>
-                <Link to={`/detalle/${item.id}`}>
+                <Link to={`/item/${item.id}`}>
                     <Card.Text>{item.description}</Card.Text>
                     <Image className="image" src={item.image} rounded />
                 </Link>

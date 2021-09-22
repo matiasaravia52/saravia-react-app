@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from "../components/ItemDetail";
 import { getFetchOne } from "../util/FuntionUtils";
 
-const ItemDetailContainer = () => {
-    
+const ItemDetailContainer = ({addOn}) => {
+
     const [product, setProduct] = useState();
+
 
     let { id } = useParams();
 
@@ -13,9 +14,10 @@ const ItemDetailContainer = () => {
         getFetchOne(id)
             .then(product =>setProduct(product))  
     }, [])
-    
+
+
     return (
-        <ItemDetail product={product}/>
+        <ItemDetail product={product} addOn={addOn}/>
     )
 } 
 

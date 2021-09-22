@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useParams } from 'react-router';
 import ItemList from '../components/ItemList';
-import { getFetch } from '../util/FuntionUtils';
+import { getFetch, getFetchByCategory } from '../util/FuntionUtils';
 import './style.css'
 
 
-const ItemListContainer = ({ greeting }) => {
-
-    const [cart, setCart] = useState(0);
+const ItemListContainer = ({ addOn }) => {
     const [items, setItems] = useState([]);
 
-    useEffect(() => {
-        getFetch.then(response => setItems(response))
-    }, [])
+    let { id } = useParams();
 
-    const handleAddOn = (quantity) => {
-        console.log(quantity);
-        setCart(cart + quantity);
-    }
+    useEffect(() => {
+        console.log(id)
+        if (id) {
+            getFetchByCategory(id)
+                .then(response => setItems(response));
+        } else {
+            getFetch.then(response => setItems(response));
+        }
+    }, [])
 
     return (
         <Container>
-            <div className="greeting">
-                {`${greeting} ${cart}`}
-            </div>
-            <ItemList items={items} addOn={handleAddOn} />
+            <ItemList items={items} addOn={addOn} />
         </Container>
     )
 }

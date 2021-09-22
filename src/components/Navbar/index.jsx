@@ -10,7 +10,11 @@ const NavbarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <NavDropdown title="Categorias" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/category/1">Remeras</NavDropdown.Item>
+                        <NavDropdown.Item href="/category/2">Camisas</NavDropdown.Item>
+                        <NavDropdown.Item href="/category/3">Pantalones</NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>
                 <CartWidget />
