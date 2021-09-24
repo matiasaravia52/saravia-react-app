@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { ButtonGroup, InputGroup, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './style.css'
 
 
 const ItemCount = ({stock=10, initial=1, addOn}) => {
     
     const [count, setCount] = useState(initial);
+    const [finish, setFinish] = useState(true);
 
     const handleCount = (value) => {
         if(value < 0) {
@@ -26,7 +28,9 @@ const ItemCount = ({stock=10, initial=1, addOn}) => {
                     <InputGroup.Text className="text-center text" id="btnGroupAddon">{count}</InputGroup.Text>
                     <Button variant="primary" onClick={() => handleCount(1)}>+</Button>
                 </ButtonGroup>
-                <Button variant="outline-primary" className="button" onClick={() => addOn(count)} >Agregar al Carro</Button>
+                {finish 
+                ? <Button variant="outline-primary" className="button" onClick={() => {addOn(count); setFinish(!finish)}} >Agregar al Carro</Button> 
+                : <Link to="/cart"><Button variant="primary" className="button" >Finalizar compra</Button></Link>}
             </>
     )
 }

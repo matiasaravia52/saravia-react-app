@@ -29,6 +29,11 @@ function App() {
           <Route path="/category/:id">
             <ItemListContainer addOn={handleAddOn}/>
           </Route>
+          <Route path="/cart">
+            <div>
+              <h1>El carrito</h1>
+            </div>
+          </Route>
           <Route path="/">
             <ItemListContainer addOn={handleAddOn}/>
           </Route>
