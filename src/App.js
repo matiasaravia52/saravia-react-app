@@ -5,29 +5,19 @@ import './App.css';
 import Navbar from './components/Navbar';
 import ItemDetailContainer from './containers/ItemDetailContainer';
 import ItemListContainer from './containers/ItemListContainer';
+import CartContextProvider from './contexts/CartContext';
 
 function App() {
-  const [cart, setCart] = useState(0);
-  
-  const handleAddOn = (quantity) => {
-    console.log(quantity);
-    setCart(cart + quantity);
-  }
-
   return (
-    <>
-      <Navbar />
-      <Container>
-        <div className="greeting">
-            {`La cantidad de productos en el carrito es: ${cart}`}
-        </div>
-        <Router>
+    <CartContextProvider>
+      <Router>
+        <Navbar />
         <Switch>
           <Route path="/item/:id">
-            <ItemDetailContainer addOn={handleAddOn}/>
+            <ItemDetailContainer />
           </Route>
           <Route path="/category/:id">
-            <ItemListContainer addOn={handleAddOn}/>
+            <ItemListContainer />
           </Route>
           <Route path="/cart">
             <div>
@@ -35,12 +25,11 @@ function App() {
             </div>
           </Route>
           <Route path="/">
-            <ItemListContainer addOn={handleAddOn}/>
+            <ItemListContainer />
           </Route>
         </Switch>
       </Router>
-      </Container>
-    </>
+    </CartContextProvider>
   );
 }
 

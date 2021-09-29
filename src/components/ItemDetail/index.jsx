@@ -3,7 +3,7 @@ import { Card, Container, Image } from "react-bootstrap";
 import ItemCount from "../ItemCount";
 import './style.css'
 
-const ItemDetail = ({product, addOn}) => {
+const ItemDetail = ({product}) => {
     return (
         <Container className="container-card">
             <Card>
@@ -12,7 +12,7 @@ const ItemDetail = ({product, addOn}) => {
                     <Image src={product?.image} rounded />
                 </Card.Body>
                 <div className="count">
-                    <ItemCount addOn={addOn}/>
+                    <ItemCount item={product}/>
                 </div>
             </Card>
         </Container>

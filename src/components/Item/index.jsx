@@ -5,7 +5,7 @@ import ItemCount from '../ItemCount';
 import './style.css'
 
 
-const Item = ({ item, addOn }) => {
+const Item = ({ item }) => {
     return (
         <Card className="item">
             <Card.Body>
@@ -13,7 +13,7 @@ const Item = ({ item, addOn }) => {
                     <Card.Text>{item.description}</Card.Text>
                     <Image className="image" src={item.image} rounded />
                 </Link>
-                <ItemCount addOn={addOn} />
+                <ItemCount item={item}/>
             </Card.Body>
         </Card>
     )

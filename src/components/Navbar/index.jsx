@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget';
 const { Navbar, Container, Nav, NavDropdown } = require("react-bootstrap");
 
@@ -6,14 +7,14 @@ const NavbarComponent = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href="/">React-App</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">React-App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/category/1">Remeras</NavDropdown.Item>
-                        <NavDropdown.Item href="/category/2">Camisas</NavDropdown.Item>
-                        <NavDropdown.Item href="/category/3">Pantalones</NavDropdown.Item>
+                        <Link to={'/category/1'} className="dropdown-item">Remeras</Link>
+                        <Link to={'/category/2'} className="dropdown-item">Camisas</Link>
+                        <Link to={'/category/3'} className="dropdown-item">Pantalones</Link>
                     </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from "../components/ItemDetail";
 import { getFetchOne } from "../util/FuntionUtils";
 
-const ItemDetailContainer = ({addOn}) => {
+const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState();
 
@@ -17,7 +17,7 @@ const ItemDetailContainer = ({addOn}) => {
 
 
     return (
-        <ItemDetail product={product} addOn={addOn}/>
+        <ItemDetail product={product}/>
     )
 } 
 

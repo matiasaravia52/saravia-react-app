@@ -6,7 +6,7 @@ import { getFetch, getFetchByCategory } from '../util/FuntionUtils';
 import './style.css'
 
 
-const ItemListContainer = ({ addOn }) => {
+const ItemListContainer = () => {
     const [items, setItems] = useState([]);
 
     let { id } = useParams();
@@ -19,11 +19,11 @@ const ItemListContainer = ({ addOn }) => {
         } else {
             getFetch.then(response => setItems(response));
         }
-    }, [])
+    }, [id])
 
     return (
         <Container>
-            <ItemList items={items} addOn={addOn} />
+            <ItemList items={items} />
         </Container>
     )
 }
